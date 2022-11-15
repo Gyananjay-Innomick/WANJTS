@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import SearchBox from '../Components/SearchBox'
@@ -23,11 +23,14 @@ export default function Home() {
                     <Image
                       src={`/new-york.jpg`}
                       alt="new-york"
-                      layout="responsive"
                       height='380'
                       width='280'
-                      objectFit='cover'
-                    />
+                      sizes="100vw"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover"
+                      }} />
                   </div>
                 </Link>
                 <span>New York</span>
@@ -38,11 +41,14 @@ export default function Home() {
                     <Image
                       src={`/london.jpg`}
                       alt="london"
-                      layout="responsive"
                       height='380'
                       width='280'
-                      objectFit='cover'
-                    />
+                      sizes="100vw"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover"
+                      }} />
                   </div>
                 </Link>
                 <span>London</span>
@@ -55,9 +61,12 @@ export default function Home() {
                       alt="tokyo"
                       height='380'
                       width='280'
-                      objectFit='cover'
-                      layout="responsive"
-                    />
+                      sizes="100vw"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover"
+                      }} />
                   </div>
                 </Link>
                 <span>Tokyo</span>
@@ -70,9 +79,12 @@ export default function Home() {
                       alt="paris"
                       height='380'
                       width='280'
-                      objectFit='cover'
-                      layout="responsive"
-                    />
+                      sizes="100vw"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover"
+                      }} />
                   </div>
                 </Link>
                 <span>Paris</span>
@@ -83,5 +95,5 @@ export default function Home() {
       </div>
 
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment-timezone";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 type Weather = {
     dt: number,
@@ -35,7 +35,10 @@ export default function HourlyWeather({
                                     alt={weather.weather[0].description}
                                     width="100"
                                     height="100"
-                                />
+                                    style={{
+                                        maxWidth: "100%",
+                                        height: "auto"
+                                    }} />
                                 <span>{weather.temp.toFixed(0)}&deg;C</span>
                             </div>
                         </div>
