@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment-timezone";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 type Weather = {
     dt: number,

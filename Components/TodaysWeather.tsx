@@ -1,6 +1,6 @@
 import moment from "moment-timezone";
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function TodaysWeather({
     city, weather, timezone
