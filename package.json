@@ -14,9 +14,12 @@
     "@types/react-dom": "18.0.8",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.39",
     "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.56.1",
     "typescript": "4.8.4"
   }
 }
