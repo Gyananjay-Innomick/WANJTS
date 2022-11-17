@@ -6,6 +6,7 @@ import Head from "next/head";
 import SearchBox from "../../Components/SearchBox";
 import TodaysWeather from "../../Components/TodaysWeather";
 import HourlyWeather from "../../Components/HourlyWeather";
+import WeeklyWeather from "../../Components/WeeklyWeather";
 
 interface CityProps {
     city: City,
@@ -27,7 +28,6 @@ type City = {
 }
 
 export default function City({ city, weeklyWeather, hourlyWeather, timezone }: CityProps) {
-    console.log("hour---", hourlyWeather)
     return (
         <div>
             <Head>
@@ -46,6 +46,7 @@ export default function City({ city, weeklyWeather, hourlyWeather, timezone }: C
                         timezone={timezone}
                     />
                     <HourlyWeather hourlyWeather={hourlyWeather} timezone={timezone} />
+                    <WeeklyWeather weeklyWeather={weeklyWeather} timezone={timezone} />
                 </div>
             </div>
         </div>
@@ -72,7 +73,6 @@ export async function getServerSideProps(context: { params: { city: string; }; }
             notFound: true,
         };
     }
-    // console.log(data.hourly);
 
     const hourlyWeather = getHourlyWeather(data.hourly, data.timezone);
     const weeklyWeather = data.daily;

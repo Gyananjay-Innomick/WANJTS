@@ -5,6 +5,7 @@ import Image from "next/image";
 export default function TodaysWeather({
     city, weather, timezone
 }: any) {
+    console.log(weather);
     return (
         <div className="today">
             <div className="today__inner">
