@@ -1,9 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import moment from "moment-timezone";
+import { weatherData } from "../Helper/types";
 
 interface weeklyWeatherProps {
-    weeklyWeather: [],
+    weeklyWeather: weatherData[],
     timezone: string
 }
 export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeatherProps) {

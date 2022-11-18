@@ -7,24 +7,14 @@ import SearchBox from "../../Components/SearchBox";
 import TodaysWeather from "../../Components/TodaysWeather";
 import HourlyWeather from "../../Components/HourlyWeather";
 import WeeklyWeather from "../../Components/WeeklyWeather";
+import { weatherData, CityType } from "../../Helper/types";
 
 interface CityProps {
-    city: City,
+    city: CityType,
     timezone: string,
     currentWeather: object,
     hourlyWeather: [],
-    weeklyWeather: object[],
-}
-type City = {
-    "slug"?: string | null | undefined;
-    "id": number,
-    "name": string,
-    "state": string,
-    "country": string,
-    "coord": {
-        "lon": number,
-        "lat": number
-    }
+    weeklyWeather: weatherData[],
 }
 
 export default function City({ city, weeklyWeather, hourlyWeather, timezone }: CityProps) {
@@ -97,7 +87,7 @@ const getCityId = (param: string) => {
         return null;
     }
 
-    const city = cities.find((city: City) => city.id.toString() == id);
+    const city = cities.find((city: CityType) => city.id.toString() == id);
     if (city) {
         return city;
     } else {
