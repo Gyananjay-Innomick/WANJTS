@@ -9,7 +9,7 @@ interface weeklyWeatherProps {
 export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeatherProps) {
     return (
         <div className="weekly">
-            <h3 className="weekly_title">Weekly Weather</h3>
+            <h3 className="weekly_title">Weekly <span>Weather</span></h3>
             {
                 weeklyWeather.length > 0 && weeklyWeather.map((weather, index) => {
                     if (index === 0) {

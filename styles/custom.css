@@ -15,6 +15,13 @@
     padding-right: 15px;
 }
 
+.places_box span {
+    font-weight: 700;
+    font-size: 1.25rem;
+    opacity: .9;
+    transition: all .3s ease;
+}
+
 .places_image-wrapper {
     position: relative;
     border-radius: 10px;
@@ -22,4 +29,12 @@
     overflow: hidden;
     cursor: pointer;
     height: 240px;
+}
+
+@media screen and (max-width: 768px) {
+    .places_box {
+        flex: 0 0 50%;
+        margin-bottom: 25px;
+        text-align: center;
+    }
 }

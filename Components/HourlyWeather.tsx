@@ -14,7 +14,6 @@ type Weather = {
 export default function HourlyWeather({
     hourlyWeather, timezone
 }: { hourlyWeather: Weather[], timezone: string }) {
-    console.log(hourlyWeather);
     return (
         <div className="hourly">
 
