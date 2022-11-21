@@ -1,7 +1,8 @@
 import React from "react";
-import cities from "../library/city.list.json";
+import cityJson from "../library/city.list.json";
 import Link from "next/link";
 import Router from "next/router";
+import { CityType } from "../Helper/types"
 
 type City = {
     "slug"?: string | null | undefined;
@@ -33,6 +34,7 @@ export default function SearchBox({ placeholder }: { placeholder: string }) {
         setQuery(value);
         let matchingCities = [];
         if (value.length > 3) {
+            const cities = cityJson as CityType[];
             for (let city of cities) {
                 if (matchingCities.length >= 5) {
                     break;
@@ -53,7 +55,7 @@ export default function SearchBox({ placeholder }: { placeholder: string }) {
 
     return (
         <div className="search">
-            <input value={query} onChange={onChange} type="text" placeholder={placeholder} />
+            <input value={query} onChange={onChange} type="text" placeholder={placeholder} data-testid='searchbox_input' />
             {
                 query.length > 3 && (
                     <ul>

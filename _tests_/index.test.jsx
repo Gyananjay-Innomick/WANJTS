@@ -5,14 +5,14 @@ import '@testing-library/jest-dom'
 test("renders h1 app heading", () => {
     render(<Home />);
     const h1Heading = screen.getByText(/weather forecast app/i);
-    expect(h1Heading).toBeInTheDocument;
+    expect(h1Heading).toBeInTheDocument();
 });
 
 test("render 4 city image", () => {
     render(<Home />);
     const cityImages = screen.getAllByRole('img');
     expect(cityImages).toBeInTheDocument;
-    expect(cityImages.length === 4).toBeTruthy;
+    expect(cityImages.length === 4).toBeTruthy();
 })
 
 //city image src and alt should have same name..
@@ -22,7 +22,7 @@ test("city image src and alt check", () => {
     cityImages.map((cityImage) => {
         const cityAltRegex = new RegExp(cityImage.alt, "i");
         const citySrcRegex = new RegExp(cityImage.src, "i");
-        const cityName = citySrcRegex.test(cityAltRegex);
-        expect(cityName).toBeTruthy;
+        const cityName = cityAltRegex.test(citySrcRegex);
+        expect(cityName).toBeTruthy();
     });
 });
