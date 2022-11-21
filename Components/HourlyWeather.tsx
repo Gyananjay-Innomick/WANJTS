@@ -1,19 +1,11 @@
 import React from "react";
 import moment from "moment-timezone";
 import Image from "next/image";
-
-type Weather = {
-    dt: number,
-    weather: {
-        icon: any,
-        description: string,
-    }[],
-    temp: number;
-}
+import { WeatherHourly } from "../Helper/types"
 
 export default function HourlyWeather({
     hourlyWeather, timezone
-}: { hourlyWeather: Weather[], timezone: string }) {
+}: { hourlyWeather: WeatherHourly[], timezone: string }) {
     return (
         <div className="hourly">
 

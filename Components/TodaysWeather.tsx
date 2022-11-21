@@ -1,10 +1,17 @@
 import moment from "moment-timezone";
 import React from "react";
 import Image from "next/image";
+import { weatherData, CityType } from "../Helper/types";
+
+interface TodaysWeatherProps {
+    city: CityType,
+    weather: weatherData,
+    timezone: string
+}
 
 export default function TodaysWeather({
     city, weather, timezone
-}: any) {
+}: TodaysWeatherProps) {
     return (
         <div className="today">
             <div className="today__inner">
