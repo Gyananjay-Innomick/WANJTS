@@ -1,5 +1,5 @@
 import React from "react";
-import cities from "../../library/city.list.json";
+import cityJson from "../../library/city.list.json";
 import moment from "moment-timezone";
 import Link from "next/link";
 import Head from "next/head";
@@ -7,13 +7,13 @@ import SearchBox from "../../Components/SearchBox";
 import TodaysWeather from "../../Components/TodaysWeather";
 import HourlyWeather from "../../Components/HourlyWeather";
 import WeeklyWeather from "../../Components/WeeklyWeather";
-import { weatherData, CityType } from "../../Helper/types";
+import { weatherData, CityType, WeatherHourly } from "../../Helper/types";
 
 interface CityProps {
     city: CityType,
     timezone: string,
     currentWeather: object,
-    hourlyWeather: [],
+    hourlyWeather: WeatherHourly[],
     weeklyWeather: weatherData[],
 }
 
@@ -86,6 +86,8 @@ const getCityId = (param: string) => {
     if (!id) {
         return null;
     }
+
+    const cities = cityJson as CityType[];
 
     const city = cities.find((city: CityType) => city.id.toString() == id);
     if (city) {

@@ -12,7 +12,7 @@ export default function HourlyWeather({
             <div className="hourly__inner">
                 {hourlyWeather.length > 0 &&
                     hourlyWeather.map((weather, index: number) => (
-                        <div className="hourly__box-wrapper" key={weather.dt}>
+                        <div className="hourly__box-wrapper" key={weather.dt} data-testid="hourlyWeather_card">
                             <div className="hourly__box">
                                 <span
                                     className={`hourly__time ${index == 0 ? "hourly__time-now" : ""}`}

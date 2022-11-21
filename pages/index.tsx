@@ -13,7 +13,7 @@ export default function Home() {
 
         <div className="container">
           <h1 style={{ textAlign: "center" }}>Weather forecast app</h1>
-          <SearchBox placeholder="search for a city" />
+          <SearchBox placeholder="search for a city.." />
           <div className='places'>
             <div className='places_row'>
               <div className='places_box'>
