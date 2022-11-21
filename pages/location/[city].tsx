@@ -8,6 +8,9 @@ import TodaysWeather from "../../Components/TodaysWeather";
 import HourlyWeather from "../../Components/HourlyWeather";
 import WeeklyWeather from "../../Components/WeeklyWeather";
 import { weatherData, CityType, WeatherHourly } from "../../Helper/types";
+import enUS from "../../Translations/en.json";
+import fr from "../../Translations/fr.json";
+import { useRouter } from "next/router";
 
 interface CityProps {
     city: CityType,
@@ -18,6 +21,20 @@ interface CityProps {
 }
 
 export default function City({ city, weeklyWeather, hourlyWeather, timezone }: CityProps) {
+
+    const router = useRouter();
+    const { locale } = router;
+
+    let t = enUS;
+    switch (locale) {
+        case "en-GB":
+            t = enUS
+            break;
+        case "fr":
+            t = fr
+            break;
+    }
+
     return (
         <div>
             <Head>
@@ -27,7 +44,7 @@ export default function City({ city, weeklyWeather, hourlyWeather, timezone }: C
             <div className="page-wrapper">
                 <div className="container">
                     <Link href="/" legacyBehavior>
-                        <a className="back-link">&larr; Home</a>
+                        <a className="back-link">&larr; {t.city.home}</a>
                     </Link>
                     <SearchBox placeholder="Search for a location" />
                     <TodaysWeather

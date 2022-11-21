@@ -2,12 +2,29 @@ import React from "react";
 import Image from "next/image";
 import moment from "moment-timezone";
 import { weatherData } from "../Helper/types";
+import { useRouter } from "next/router";
+import enUS from "../Translations/en.json";
+import fr from "../Translations/fr.json";
 
 interface weeklyWeatherProps {
     weeklyWeather: weatherData[],
     timezone: string
 }
 export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeatherProps) {
+
+    const router = useRouter();
+    const { locale } = router;
+
+    let t = enUS;
+    switch (locale) {
+        case "en-GB":
+            t = enUS
+            break;
+        case "fr":
+            t = fr
+            break;
+    }
+
     return (
         <div className="weekly">
             <h3 className="weekly_title">Weekly <span>Weather</span></h3>
@@ -29,11 +46,11 @@ export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeather
                                     </div>
                                     <div className="weekly_sun-times">
                                         <div>
-                                            <span>Sunrise</span>
+                                            <span>{t.city.sunrise}</span>
                                             <span>{moment.unix(weather.sunrise).tz(timezone).format("LT")}</span>
                                         </div>
                                         <div>
-                                            <span>Sunset</span>
+                                            <span>{t.city.sunset}</span>
                                             <span>{moment.unix(weather.sunset).tz(timezone).format("LT")}</span>
                                         </div>
                                     </div>

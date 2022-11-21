@@ -1,18 +1,34 @@
 import Head from 'next/head'
 import Image from "next/image";
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import SearchBox from '../Components/SearchBox'
+import enUS from "../Translations/en.json";
+import fr from "../Translations/fr.json";
+
 
 export default function Home() {
+  const router = useRouter();
+  const { locale } = router;
+
+  let t = enUS;
+  switch (locale) {
+    case "en-GB":
+      t = enUS
+      break;
+    case "fr":
+      t = fr
+      break;
+  }
   return (
     <div>
       <Head>
-        <title>Weather App</title>
+        <title>{t.home.title}</title>
       </Head>
       <div className="home">
 
         <div className="container">
-          <h1 style={{ textAlign: "center" }}>Weather forecast app</h1>
+          <h1 style={{ textAlign: "center" }}>{t.home.heading}</h1>
           <SearchBox placeholder="search for a city.." />
           <div className='places'>
             <div className='places_row'>
@@ -32,7 +48,7 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>New York</span>
+                <span>{t.home.new_york}</span>
               </div>
               <div className='places_box'>
                 <Link href={'location/london-2643743'}>
@@ -50,7 +66,7 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>London</span>
+                <span>{t.home.london}</span>
               </div>
               <div className='places_box'>
                 <Link href={'location/tokyo-1850147'}>
@@ -68,7 +84,7 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>Tokyo</span>
+                <span>{t.home.tokyo}</span>
               </div>
               <div className='places_box'>
                 <Link href={'location/paris-2968815'}>
@@ -86,7 +102,7 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>Paris</span>
+                <span>{t.home.paris}</span>
               </div>
             </div>
           </div>
