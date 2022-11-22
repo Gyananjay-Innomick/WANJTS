@@ -17,11 +17,11 @@ export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeather
                         return;
                     }
                     return (
-                        <div className="weekly_card" key={index}>
+                        <div className="weekly_card" key={index} data-testid="weeklyCard">
                             <div className="weekly_inner">
                                 <div className="weekly_left-content">
                                     <div>
-                                        <h3>{moment.unix(weather.dt).tz(timezone).format('dddd')}</h3>
+                                        <h3 data-testid="weekly_days">{moment.unix(weather.dt).tz(timezone).format('dddd')}</h3>
                                         <h4>
                                             <span>{weather.temp.max.toFixed(0)}&deg;C</span>
                                             <span>{weather.temp.min.toFixed(0)}&deg;C</span>
