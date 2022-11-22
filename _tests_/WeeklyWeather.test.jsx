@@ -89,15 +89,17 @@ const weeklyData = [
     }
 ]
 const timezone = "Europe/Paris"
-test("render weekly weather days", () => {
-    render(<WeeklyWeather weeklyWeather={weeklyData} timezone={timezone} />);
-    const weeklyDays = screen.getAllByTestId("weekly_days");
-    weeklyDays.map((weekday) => {
-        expect(weekday).toHaveTextContent(/^(Sun|Mon|(T(ues|hurs))|Fri)(day|\.)?$|Wed(\.|nesday)?$|Sat(\.|urday)?$|T((ue?)|(hu?r?))\.?$/);
+describe('weeekly weather component test', () => {
+    test("render weekly weather days", () => {
+        render(<WeeklyWeather weeklyWeather={weeklyData} timezone={timezone} />);
+        const weeklyDays = screen.getAllByTestId("weekly_days");
+        weeklyDays.map((weekday) => {
+            expect(weekday).toHaveTextContent(/^(Sun|Mon|(T(ues|hurs))|Fri)(day|\.)?$|Wed(\.|nesday)?$|Sat(\.|urday)?$|T((ue?)|(hu?r?))\.?$/);
+        })
     })
-})
-test("render all data passed to weeklyWeather component", () => {
-    render(<WeeklyWeather weeklyWeather={weeklyData} timezone={timezone} />);
-    const weatherCards = screen.getAllByTestId("weeklyCard");
-    expect(weatherCards.length).toEqual(weeklyData.length - 1);
+    test("render all data passed to weeklyWeather component", () => {
+        render(<WeeklyWeather weeklyWeather={weeklyData} timezone={timezone} />);
+        const weatherCards = screen.getAllByTestId("weeklyCard");
+        expect(weatherCards.length).toEqual(weeklyData.length - 1);
+    })
 })

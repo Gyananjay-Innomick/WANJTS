@@ -20,9 +20,6 @@ test("city image src and alt check", () => {
     render(<Home />);
     const cityImages = screen.getAllByRole('img');
     cityImages.map((cityImage) => {
-        const cityAltRegex = new RegExp(cityImage.alt, "i");
-        const citySrcRegex = new RegExp(cityImage.src, "i");
-        const cityName = cityAltRegex.test(citySrcRegex);
-        expect(cityName).toBeTruthy();
+        expect(cityImage.src).toContain(cityImage.alt);
     });
 });

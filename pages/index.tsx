@@ -20,7 +20,7 @@ export default function Home() {
                 <Link href={'location/new-delhi-1261481'}>
                   <div className='places_image-wrapper'>
                     <Image
-                      src={`/delhi.jpg`}
+                      src={`/new-delhi.jpg`}
                       alt="new-delhi"
                       height='380'
                       width='280'
