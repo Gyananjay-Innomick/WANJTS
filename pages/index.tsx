@@ -17,11 +17,11 @@ export default function Home() {
           <div className='places'>
             <div className='places_row'>
               <div className='places_box'>
-                <Link href={'location/new-york-5128638'}>
+                <Link href={'location/new-delhi-1261481'}>
                   <div className='places_image-wrapper'>
                     <Image
-                      src={`/new-york.jpg`}
-                      alt="new-york"
+                      src={`/delhi.jpg`}
+                      alt="new-delhi"
                       height='380'
                       width='280'
                       sizes="100vw"
@@ -32,14 +32,14 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>New York</span>
+                <span>New Delhi</span>
               </div>
               <div className='places_box'>
-                <Link href={'location/london-2643743'}>
+                <Link href={'location/mumbai-1275339'}>
                   <div className='places_image-wrapper'>
                     <Image
-                      src={`/london.jpg`}
-                      alt="london"
+                      src={`/mumbai.jpg`}
+                      alt="mumbai"
                       height='380'
                       width='280'
                       sizes="100vw"
@@ -50,14 +50,14 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>London</span>
+                <span>Mumbai</span>
               </div>
               <div className='places_box'>
-                <Link href={'location/tokyo-1850147'}>
+                <Link href={'location/kolkata-1275004'}>
                   <div className='places_image-wrapper'>
                     <Image
-                      src={`/tokyo.jpg`}
-                      alt="tokyo"
+                      src={`/kolkata.jpg`}
+                      alt="kolkata"
                       height='380'
                       width='280'
                       sizes="100vw"
@@ -68,14 +68,14 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>Tokyo</span>
+                <span>Kolkata</span>
               </div>
               <div className='places_box'>
-                <Link href={'location/paris-2968815'}>
+                <Link href={'location/hyderabad-1269843'}>
                   <div className='places_image-wrapper'>
                     <Image
-                      src={`/paris.jpg`}
-                      alt="paris"
+                      src={`/hyderabad.jpg`}
+                      alt="hyderabad"
                       height='380'
                       width='280'
                       sizes="100vw"
@@ -86,7 +86,7 @@ export default function Home() {
                       }} />
                   </div>
                 </Link>
-                <span>Paris</span>
+                <span>Hyderabad</span>
               </div>
             </div>
           </div>

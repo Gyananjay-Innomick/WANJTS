@@ -27,7 +27,6 @@ export default function HourlyWeather({
                                     width="100"
                                     height="100"
                                     style={{
-                                        maxWidth: "100%",
                                         height: "auto"
                                     }} />
                                 <span>{weather.temp.toFixed(0)}&deg;C</span>
