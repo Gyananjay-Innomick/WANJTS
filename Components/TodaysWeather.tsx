@@ -16,12 +16,12 @@ export default function TodaysWeather({
         <div className="today">
             <div className="today__inner">
                 <div className="today__left-content">
-                    <h1>
+                    <h1 data-testid="city_name">
                         {city.name} ({city.country})
                     </h1>
                     <h2>
-                        <span>{weather.temp.max.toFixed(0)}&deg;C</span>
-                        <span>{weather.temp.min.toFixed(0)}&deg;C</span>
+                        <span data-testid="today_max_temp">{weather.temp.max.toFixed(0)}&deg;C</span>
+                        <span data-testid="today_min_temp">{weather.temp.min.toFixed(0)}&deg;C</span>
                     </h2>
                     <div className="today__sun-times">
                         <div>
