@@ -4,22 +4,10 @@ import Link from "next/link";
 import Router from "next/router";
 import { CityType } from "../Helper/types"
 
-type City = {
-    "slug"?: string | null | undefined;
-    "id": number,
-    "name": string,
-    "state": string,
-    "country": string,
-    "coord": {
-        "lon": number,
-        "lat": number
-    }
-}
-type Cities = City[];
 
 export default function SearchBox({ placeholder }: { placeholder: string }) {
     const [query, setQuery] = React.useState("");
-    const [results, setResults] = React.useState<City[]>();
+    const [results, setResults] = React.useState<CityType[]>();
 
     React.useEffect(() => {
         const clearQuery = () => setQuery("");
