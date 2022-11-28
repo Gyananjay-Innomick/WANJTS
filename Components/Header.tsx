@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Select, { SingleValue } from 'react-select';
 import { useTranslation } from 'next-i18next';
+import Image from "next/image";
 
 export default function Header() {
 
@@ -25,9 +26,16 @@ export default function Header() {
 
     return (
         <header>
-            <div></div>
-            <h1 style={{ textAlign: "center" }}>{t("heading")}</h1>
             <div>
+                <Image
+                    src={`/logo.png`}
+                    alt="logo"
+                    height='40'
+                    width='40'
+                    sizes="100vw" />
+            </div>
+            <h1 style={{ textAlign: "center" }}>{t("heading")}</h1>
+            <div className='lang_select'>
                 <Select
                     styles={{
                         control: (baseStyles, state) => ({
