@@ -17,6 +17,19 @@ body {
     margin: 0;
 }
 
+header {
+    display: flex;
+    background-color: #383737;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 0 15px;
+
+    h1 {
+        margin: 10px;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;
@@ -30,6 +43,13 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+.home_content {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container {
@@ -214,9 +234,6 @@ h6 {
 .home {
     width: 100vw;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .search {
@@ -393,6 +410,12 @@ h6 {
     }
 
     &_icon-wrapper {
+        width: 75px;
+        height: 60px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+
         div {
             text-align: center;
         }

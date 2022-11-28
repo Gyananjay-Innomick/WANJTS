@@ -2,12 +2,16 @@ import React from "react";
 import Image from "next/image";
 import moment from "moment-timezone";
 import { weatherData } from "../Helper/types";
+import { useTranslation } from "next-i18next"
 
 interface weeklyWeatherProps {
     weeklyWeather: weatherData[],
     timezone: string
 }
 export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeatherProps) {
+
+    const { t } = useTranslation('city');
+
     return (
         <div className="weekly">
             <h3 className="weekly_title">Weekly <span>Weather</span></h3>
@@ -21,7 +25,7 @@ export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeather
                             <div className="weekly_inner">
                                 <div className="weekly_left-content">
                                     <div>
-                                        <h3 data-testid="weekly_days">{moment.unix(weather.dt).tz(timezone).format('dddd')}</h3>
+                                        <h3 data-testid="weekly_days">{t(`${moment.unix(weather.dt).tz(timezone).format('dddd')}`)}</h3>
                                         <h4>
                                             <span>{weather.temp.max.toFixed(0)}&deg;C</span>
                                             <span>{weather.temp.min.toFixed(0)}&deg;C</span>
@@ -29,11 +33,11 @@ export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeather
                                     </div>
                                     <div className="weekly_sun-times">
                                         <div>
-                                            <span>Sunrise</span>
+                                            <span>{t("sunrise")}</span>
                                             <span>{moment.unix(weather.sunrise).tz(timezone).format("LT")}</span>
                                         </div>
                                         <div>
-                                            <span>Sunset</span>
+                                            <span>{t("sunset")}</span>
                                             <span>{moment.unix(weather.sunset).tz(timezone).format("LT")}</span>
                                         </div>
                                     </div>

@@ -1,0 +1,13 @@
+{
+    "title": "Application météo",
+    "heading": "Application de prévision météo",
+    "new_york": "New York",
+    "london": "London",
+    "paris": "Paris",
+    "tokyo": "Tokyo",
+    "hyderabad": "Hyderabad",
+    "kolkata": "Kolkata",
+    "mumbai": "Mumbai",
+    "new_delhi": "New Delhi",
+    "placeholder": "Rechercher un lieu.."
+}
