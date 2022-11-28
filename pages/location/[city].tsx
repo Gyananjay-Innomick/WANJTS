@@ -8,6 +8,9 @@ import TodaysWeather from "../../Components/TodaysWeather";
 import HourlyWeather from "../../Components/HourlyWeather";
 import WeeklyWeather from "../../Components/WeeklyWeather";
 import { weatherData, CityType, WeatherHourly } from "../../Helper/types";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Header from "../../Components/Header";
 
 interface CityProps {
     city: CityType,
@@ -18,16 +21,19 @@ interface CityProps {
 }
 
 export default function City({ city, weeklyWeather, hourlyWeather, timezone }: CityProps) {
+
+    const { t } = useTranslation('city');
+
     return (
         <div>
             <Head>
                 <title>{city.name} Weather - Next Weather App</title>
             </Head>
-
+            <Header />
             <div className="page-wrapper">
                 <div className="container">
                     <Link href="/" legacyBehavior>
-                        <a className="back-link">&larr; Home</a>
+                        <a className="back-link">&larr; {t("home")}</a>
                     </Link>
                     <SearchBox placeholder="Search for a location" />
                     <TodaysWeather
@@ -43,8 +49,11 @@ export default function City({ city, weeklyWeather, hourlyWeather, timezone }: C
     );
 }
 
-export async function getServerSideProps(context: { params: { city: string; }; }) {
+export async function getServerSideProps(context: {
+    locale: string; params: { city: string; };
+}) {
     const city = getCityId(context.params.city);
+    const locale = context.locale;
 
     if (!city) {
         return {
@@ -69,6 +78,7 @@ export async function getServerSideProps(context: { params: { city: string; }; }
 
     return {
         props: {
+            ...(await serverSideTranslations(locale, ['city', 'home'])),
             city: city,
             timezone: data.timezone,
             currentWeather: data.current,
