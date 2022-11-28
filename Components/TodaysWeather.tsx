@@ -2,9 +2,7 @@ import moment from "moment-timezone";
 import React from "react";
 import Image from "next/image";
 import { weatherData, CityType } from "../Helper/types";
-import { useRouter } from "next/router";
-import enUS from "../Translations/en.json";
-import fr from "../Translations/fr.json";
+import { useTranslation } from "next-i18next"
 
 interface TodaysWeatherProps {
     city: CityType,
@@ -16,18 +14,7 @@ export default function TodaysWeather({
     city, weather, timezone
 }: TodaysWeatherProps) {
 
-    const router = useRouter();
-    const { locale } = router;
-
-    let t = enUS;
-    switch (locale) {
-        case "en-GB":
-            t = enUS
-            break;
-        case "fr":
-            t = fr
-            break;
-    }
+    const { t } = useTranslation('city');
 
     return (
         <div className="today">
@@ -42,12 +29,12 @@ export default function TodaysWeather({
                     </h2>
                     <div className="today__sun-times">
                         <div>
-                            <span>{t.city.sunrise}</span>
+                            <span>{t('sunrise')}</span>
                             <span>{moment.unix(weather.sunrise).tz(timezone).format("LT")}</span>
                         </div>
 
                         <div>
-                            <span>{t.city.sunset}</span>
+                            <span>{t('sunset')}</span>
                             <span>{moment.unix(weather.sunset).tz(timezone).format("LT")}</span>
                         </div>
                     </div>

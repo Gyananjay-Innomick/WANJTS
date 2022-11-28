@@ -2,9 +2,7 @@ import React from "react";
 import Image from "next/image";
 import moment from "moment-timezone";
 import { weatherData } from "../Helper/types";
-import { useRouter } from "next/router";
-import enUS from "../Translations/en.json";
-import fr from "../Translations/fr.json";
+import { useTranslation } from "next-i18next"
 
 interface weeklyWeatherProps {
     weeklyWeather: weatherData[],
@@ -12,18 +10,7 @@ interface weeklyWeatherProps {
 }
 export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeatherProps) {
 
-    const router = useRouter();
-    const { locale } = router;
-
-    let t = enUS;
-    switch (locale) {
-        case "en-GB":
-            t = enUS
-            break;
-        case "fr":
-            t = fr
-            break;
-    }
+    const { t } = useTranslation('city');
 
     return (
         <div className="weekly">
@@ -38,7 +25,7 @@ export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeather
                             <div className="weekly_inner">
                                 <div className="weekly_left-content">
                                     <div>
-                                        <h3>{moment.unix(weather.dt).tz(timezone).format('dddd')}</h3>
+                                        <h3>{t(`${moment.unix(weather.dt).tz(timezone).format('dddd')}`)}</h3>
                                         <h4>
                                             <span>{weather.temp.max.toFixed(0)}&deg;C</span>
                                             <span>{weather.temp.min.toFixed(0)}&deg;C</span>
@@ -46,11 +33,11 @@ export default function WeeklyWeather({ weeklyWeather, timezone }: weeklyWeather
                                     </div>
                                     <div className="weekly_sun-times">
                                         <div>
-                                            <span>{t.city.sunrise}</span>
+                                            <span>{t("sunrise")}</span>
                                             <span>{moment.unix(weather.sunrise).tz(timezone).format("LT")}</span>
                                         </div>
                                         <div>
-                                            <span>{t.city.sunset}</span>
+                                            <span>{t("sunset")}</span>
                                             <span>{moment.unix(weather.sunset).tz(timezone).format("LT")}</span>
                                         </div>
                                     </div>

@@ -1,14 +1,13 @@
 /** @type {import('next').NextConfig} */
+const { i18n } = require('./next-i18next.config');
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
     domains: ["openweathermap.org", "mattthedev-next-weather-app.vercel.app"],
   },
-  i18n: {
-    locales: ['en-GB', 'fr'],
-    defaultLocale: 'en-GB'
-  }
+  i18n,
 }
 
 module.exports = nextConfig
